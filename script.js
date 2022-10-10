@@ -1,10 +1,15 @@
 function getComputerChoice() {
   let getNumber = Math.floor(Math.random() * 3);
-  if (getNumber === 0) {
+switch (getNumber) {
+  case 0:
     return getNumber = "rock";
-  } else if (getNumber === 1) {
+    break;
+  case 1:
     return getNumber = "paper";
-  } else if (getNumber === 2) {
+    break;
+  case 2:
     return getNumber = "scissors";
-  }
+    break;
 }
+}
+
