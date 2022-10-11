@@ -13,10 +13,19 @@ switch (getNumber) {
 }
 }
 
-// compare computer and users choice and return result
-
 function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice();
   playerSelection = prompt('Rock, Paper or Scissors?');
   playerSelection = playerSelection.toLowerCase();
+  if (computerSelection === playerSelection) {
+    return "It's a draw!";
+  } else if (
+    (computerSelection === "rock" && playerSelection === "scissors") || 
+    (computerSelection === "paper" && playerSelection === "rock") ||
+    (computerSelection === "scissors" && playerSelection === "paper")
+    ) {
+    return "Computer wins!";
+  } else {
+    return "Player wins!";
+  }
 }
