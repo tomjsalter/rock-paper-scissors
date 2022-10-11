@@ -1,3 +1,6 @@
+let computerScore = 0;
+let playerScore = 0;
+
 function getComputerChoice() {
   let getNumber = Math.floor(Math.random() * 3);
   switch (getNumber) {
@@ -24,14 +27,15 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")
   ) {
-    return `Computer wins! ${computerSelection} beats ${playerSelection}`;
+    return console.log(`Computer wins! ${computerSelection} beats ${playerSelection}. Computer score: ${++computerScore}`);
   } else {
-    return `Player wins! ${playerSelection} beats ${computerSelection}`;
+    return console.log(`Player wins! ${playerSelection} beats ${computerSelection}. Player score: ${++playerScore}`);
   }
 }
 
-// keep score of computer and player
-// console.log winner after 5 rounds
+// compare scores after five rounds
+// console.log winner
+
 function game() {
   for (let i = 0; i < 5; i++) {
     console.log(playRound());
