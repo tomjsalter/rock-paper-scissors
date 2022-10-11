@@ -27,17 +27,21 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")
   ) {
-    return console.log(`Computer wins! ${computerSelection} beats ${playerSelection}. Computer score: ${++computerScore}`);
+    return console.log(`Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}. Computer score: ${++computerScore}`);
   } else {
-    return console.log(`Player wins! ${playerSelection} beats ${computerSelection}. Player score: ${++playerScore}`);
+    return console.log(`Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`);
   }
 }
-
-// compare scores after five rounds
-// console.log winner
 
 function game() {
   for (let i = 0; i < 5; i++) {
     console.log(playRound());
+  }
+  if (computerScore === playerScore) {
+    console.log(`Game is a tie! Computer scored: ${computerScore}. Player scored: ${playerScore}`);
+  } else if (computerScore > playerScore) {
+    console.log(`Computer wins the game! Computer scored: ${computerScore}. Player scored: ${playerScore}`);
+  } else {
+    console.log(`Player wins the game! Player scored: ${playerScore}. Computer scored: ${computerScore}`);
   }
 }
