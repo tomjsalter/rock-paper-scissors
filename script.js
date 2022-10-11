@@ -29,3 +29,11 @@ function playRound(playerSelection, computerSelection) {
     return `Player wins! ${playerSelection} beats ${computerSelection}`;
   }
 }
+
+// keep score of computer and player
+// console.log winner after 5 rounds
+function game() {
+  for (let i = 0; i < 5; i++) {
+    console.log(playRound());
+  }
+}
