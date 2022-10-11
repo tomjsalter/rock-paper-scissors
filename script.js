@@ -13,13 +13,10 @@ switch (getNumber) {
 }
 }
 
-// make user input case insensitive
 // compare computer and users choice and return result
 
 function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice();
-  console.log(computerSelection);
   playerSelection = prompt('Rock, Paper or Scissors?');
-  console.log(playerSelection);
-
+  playerSelection = playerSelection.toLowerCase();
 }
