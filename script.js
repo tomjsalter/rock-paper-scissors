@@ -32,16 +32,3 @@ function playRound(playerSelection, computerSelection) {
     return console.log(`Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`);
   }
 }
-
-function game() {
-  for (let i = 0; i < 5; i++) {
-    console.log(playRound());
-  }
-  if (computerScore === playerScore) {
-    console.log(`Game is a tie! Computer scored: ${computerScore}. Player scored: ${playerScore}`);
-  } else if (computerScore > playerScore) {
-    console.log(`Computer wins the game! Computer scored: ${computerScore}. Player scored: ${playerScore}`);
-  } else {
-    console.log(`Player wins the game! Player scored: ${playerScore}. Computer scored: ${computerScore}`);
-  }
-}
