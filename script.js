@@ -1,3 +1,6 @@
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
 let computerScore = 0;
 let playerScore = 0;
 
@@ -25,15 +28,16 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")
   ) {
-    return console.log(`Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}. Computer score: ${++computerScore}`);
+    return console.log(
+      `Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}. Computer score: ${++computerScore}`
+    );
   } else {
-    return console.log(`Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`);
+    return console.log(
+      `Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`
+    );
   }
 }
 
-const rockBtn = document.querySelector("#rock");
-rockBtn.addEventListener('click', playRound("rock", computerSelection));
-const paperBtn = document.querySelector("#paper");
-rockBtn.addEventListener("click", playRound("paper", computerSelection));
-const scissorsBtn = document.querySelector("#scissors");
-rockBtn.addEventListener("click", playRound("scissors", computerSelection));
+rockBtn.addEventListener("click", playRound("rock", computerSelection));
+paperBtn.addEventListener("click", playRound("paper", computerSelection));
+scissorsBtn.addEventListener("click", playRound("scissors", computerSelection));
