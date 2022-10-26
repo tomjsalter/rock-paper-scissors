@@ -18,8 +18,6 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice();
-  playerSelection = prompt("Rock, Paper or Scissors?");
-  playerSelection = playerSelection.toLowerCase();
   if (computerSelection === playerSelection) {
     return `It's a draw. Computer chose: ${computerSelection} Player chose ${playerSelection}`;
   } else if (
@@ -32,3 +30,10 @@ function playRound(playerSelection, computerSelection) {
     return console.log(`Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`);
   }
 }
+
+const rockBtn = document.querySelector("#rock");
+rockBtn.addEventListener('click', playRound("rock", computerSelection));
+const paperBtn = document.querySelector("#paper");
+rockBtn.addEventListener("click", playRound("paper", computerSelection));
+const scissorsBtn = document.querySelector("#scissors");
+rockBtn.addEventListener("click", playRound("scissors", computerSelection));
