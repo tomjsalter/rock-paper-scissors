@@ -1,4 +1,6 @@
 const buttons = document.querySelectorAll("button");
+const displayResults = document.querySelector(".results-display");
+const drawPara = document.createElement("p");
 let computerScore = 0;
 let playerScore = 0;
 
@@ -20,7 +22,9 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice();
   if (computerSelection === playerSelection) {
-    return `It's a draw. Computer chose: ${computerSelection} Player chose ${playerSelection}`;
+    drawPara.textContent = `It's a draw. Computer chose: ${computerSelection} Player chose ${playerSelection}`;
+    displayResults.appendChild(drawPara);
+    console.log(`It's a draw. Computer chose: ${computerSelection} Player chose ${playerSelection}`);
   } else if (
     (computerSelection === "rock" && playerSelection === "scissors") ||
     (computerSelection === "paper" && playerSelection === "rock") ||
