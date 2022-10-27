@@ -1,6 +1,8 @@
 const buttons = document.querySelectorAll("button");
 const displayResults = document.querySelector(".results-display");
 const drawPara = document.createElement("p");
+const compPara = document.createElement("p");
+const userPara = document.createElement("p");
 let computerScore = 0;
 let playerScore = 0;
 
@@ -30,13 +32,13 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")
   ) {
-    return console.log(
-      `Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}. Computer score: ${++computerScore}`
-    );
+    compPara.textContent = `Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}. Computer score: ${++computerScore}`;
+    displayResults.appendChild(compPara);
+    console.log(`Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}. Computer score: ${++computerScore}`);
   } else {
-    return console.log(
-      `Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`
-    );
+    userPara.textContent = `Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`;
+    displayResults.appendChild(userPara);
+    console.log(`Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`);
   }
 }
 
