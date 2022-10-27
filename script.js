@@ -34,11 +34,9 @@ function playRound(playerSelection, computerSelection) {
   ) {
     compPara.textContent = `Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}. Computer score: ${++computerScore}`;
     displayResults.appendChild(compPara);
-    console.log(`Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}. Computer score: ${++computerScore}`);
   } else {
     userPara.textContent = `Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`;
     displayResults.appendChild(userPara);
-    console.log(`Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`);
   }
 }
 
