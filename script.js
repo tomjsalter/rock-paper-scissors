@@ -21,6 +21,14 @@ function getComputerChoice() {
   }
 }
 
+// ISSUES
+// Computer score increments correctly
+// If computer scores 5, winner announced by scores still showing (should be removed)
+// User score increments by 2
+// Scores don't go beyond 4
+// Results only show draws (no player can win a round)
+
+
 function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice();
   if (computerSelection === playerSelection) {
@@ -32,13 +40,25 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")
   ) {
-    roundScore.textContent = `Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}.`;
-    showCompResult.textContent = `${++computerScore}`;
-    displayResults.insertBefore(".scoreboard");
+    ++computerScore;
+    if (computerScore < 5) {
+      roundScore.textContent = `Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}.`;
+      showCompResult.textContent = `${computerScore}`;
+      displayResults.insertBefore(".scoreboard");
+    } else if (computerScore === 5) {
+      roundScore.textContent = `Computer wins the game with a score of ${computerScore}`;
+      displayResults.removeChild(".scoreboard");
+    }
   } else {
-    roundScore.textContent = `Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}.`;
-    showPlayerResult.textContent = `${++playerScore}`;
-    displayResults.insertBefore(".scoreboard");
+    ++playerScore;
+    if (playerScore < 5) {
+      roundScore.textContent = `Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}.`;
+      showPlayerResult.textContent = `${++playerScore}`;
+      displayResults.insertBefore(".scoreboard");
+    } else if (playerScore === 5) {
+      roundScore.textContent = `Players wins the game with a score of ${playerScore}`;
+      displayResults.removeChild(".scoreboard");
+    }
   }
 }
 
