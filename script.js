@@ -1,6 +1,8 @@
 const buttons = document.querySelectorAll("button");
 const displayResults = document.querySelector(".results-display");
 const roundScore = document.querySelector("#roundScore");
+const showCompResult = document.querySelector("#compResult");
+const showPlayerResult = document.querySelector("#playerResult");
 let computerScore = 0;
 let playerScore = 0;
 
@@ -30,10 +32,12 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")
   ) {
-    roundScore.textContent = `Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}. Computer score: ${++computerScore}`;
+    roundScore.textContent = `Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}.`;
+    showCompResult.textContent = `${++computerScore}`;
     displayResults.insertBefore(".scoreboard");
   } else {
-    roundScore.textContent = `Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}. Player score: ${++playerScore}`;
+    roundScore.textContent = `Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}.`;
+    showPlayerResult.textContent = `${++playerScore}`;
     displayResults.insertBefore(".scoreboard");
   }
 }
