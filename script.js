@@ -3,6 +3,7 @@ const displayResults = document.querySelector(".results-display");
 const roundScore = document.querySelector("#roundScore");
 const showCompResult = document.querySelector("#compResult");
 const showPlayerResult = document.querySelector("#playerResult");
+const scoreboard = document.querySelector(".scoreboard");
 let computerScore = 0;
 let playerScore = 0;
 
@@ -21,19 +22,10 @@ function getComputerChoice() {
   }
 }
 
-// ISSUES
-// Computer score increments correctly
-// If computer scores 5, winner announced by scores still showing (should be removed)
-// User score increments by 2
-// Scores don't go beyond 4
-// Results only show draws (no player can win a round)
-
-
 function playRound(playerSelection, computerSelection) {
   computerSelection = getComputerChoice();
   if (computerSelection === playerSelection) {
     roundScore.textContent = `It's a draw. Computer chose: ${computerSelection} Player chose ${playerSelection}`;
-    displayResults.insertBefore(".scoreboard");
     console.log(`It's a draw. Computer chose: ${computerSelection} Player chose ${playerSelection}`);
   } else if (
     (computerSelection === "rock" && playerSelection === "scissors") ||
@@ -44,20 +36,18 @@ function playRound(playerSelection, computerSelection) {
     if (computerScore < 5) {
       roundScore.textContent = `Computer wins! Computer chose: ${computerSelection}. Player chose: ${playerSelection}.`;
       showCompResult.textContent = `${computerScore}`;
-      displayResults.insertBefore(".scoreboard");
     } else if (computerScore === 5) {
       roundScore.textContent = `Computer wins the game with a score of ${computerScore}`;
-      displayResults.removeChild(".scoreboard");
+      displayResults.removeChild(displayResults.lastElementChild);
     }
   } else {
     ++playerScore;
     if (playerScore < 5) {
       roundScore.textContent = `Player wins! Player chose: ${playerSelection}. Computer chose: ${computerSelection}.`;
-      showPlayerResult.textContent = `${++playerScore}`;
-      displayResults.insertBefore(".scoreboard");
+      showPlayerResult.textContent = `${playerScore}`;
     } else if (playerScore === 5) {
       roundScore.textContent = `Players wins the game with a score of ${playerScore}`;
-      displayResults.removeChild(".scoreboard");
+      displayResults.removeChild(displayResults.lastElementChild);
     }
   }
 }
