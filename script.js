@@ -1,9 +1,11 @@
+const header = document.querySelector("#header");
 const buttons = document.querySelectorAll("button");
 const displayResults = document.querySelector(".results-display");
 const roundScore = document.querySelector("#roundScore");
 const showCompResult = document.querySelector("#compResult");
 const showPlayerResult = document.querySelector("#playerResult");
-const scoreboard = document.querySelector(".scoreboard");
+const scoreHeader = document.querySelector("#score-header");
+const restartGame = document.querySelector("#reset-button");
 let computerScore = 0;
 let playerScore = 0;
 
@@ -39,6 +41,8 @@ function playRound(playerSelection, computerSelection) {
     } else if (computerScore === 5) {
       roundScore.textContent = `Computer wins the game with a score of ${computerScore}`;
       displayResults.removeChild(displayResults.lastElementChild);
+      header.removeChild(header.lastElementChild);
+      scoreHeader.textContent = "Commiserations!";
     }
   } else {
     ++playerScore;
@@ -48,6 +52,8 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerScore === 5) {
       roundScore.textContent = `Players wins the game with a score of ${playerScore}`;
       displayResults.removeChild(displayResults.lastElementChild);
+      header.removeChild(header.lastElementChild);
+      scoreHeader.textContent = "Congratulations!";
     }
   }
 }
@@ -62,4 +68,8 @@ buttons.forEach((button) => {
       playRound("scissors");
     }
   });
+});
+
+restartGame.addEventListener("click", () => {
+  location.reload();
 });

@@ -10,21 +10,21 @@
   <body>
     <div id="header">
       <h1>Rock, Paper, Scissors</h1>
-      <h3>Choose your weapon!</h3>
-      <div id="game-buttons">
+      <div>
+        <h3>Choose your weapon!</h3>
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
       </div>
     </div>
     <div class="results-display">
-        <h3>Score</h3>
+        <h3 id="score-header">Score</h3>
         <p id="roundScore">First to score 5 points wins the game</p>
         <div class="scoreboard">
           <p>Player score: <span id="playerResult">0</span></p>
           <p>Computer score: <span id="compResult">0</span></p>
         </div>
     </div>
-    <button>Restart game</button>
+    <button id="reset-button">Restart game</button>
   </body>
 </html>
